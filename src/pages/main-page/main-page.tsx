@@ -1,34 +1,45 @@
-import React, { useState } from 'react';
-
-import reactLogo from '/react.svg';
-import viteLogo from '/vite.svg';
-import tsLogo from '/ts.svg';
+import { ReminderComponent, TextBlock } from '../../global/component';
+import { MainSidebar, MainHeader, MainFooter } from '../../components/mainPage';
 import './main-page.css';
 
 export const MainPage: React.FC = () => {
-    const [count, setCount] = useState(0);
-
     return (
-        <>
-            <div>
-                <a href='https://vitejs.dev' target='_blank'>
-                    <img src={viteLogo} className='logo' alt='Vite logo' />
-                </a>
-                <a href='https://react.dev' target='_blank'>
-                    <img src={reactLogo} className='logo react' alt='React logo' />
-                </a>
-                <a href='https://www.typescriptlang.org/' target='_blank'>
-                    <img src={tsLogo} className='logo' alt='TS logo' />
-                </a>
+        <main className='main'>
+            <MainSidebar />
+            <div className='main__content'>
+                <MainHeader />
+                <article className='main__content_can'>
+                    <ul className='can__text'>
+                        <li className='can__text_item'>С CleverFit ты сможешь:</li>
+                        <li className='can__text_item'>
+                            — планировать свои тренировки на календаре, выбирая тип и уровень
+                            нагрузки;
+                        </li>
+                        <li className='can__text_item'>
+                            — отслеживать свои достижения в разделе статистики, сравнивая свои
+                            результаты с нормами и рекордами;
+                        </li>
+                        <li className='can__text_item'>
+                            — создавать свой профиль, где ты можешь загружать свои фото, видео и
+                            отзывы о тренировках;
+                        </li>
+                        <li className='can__text_item'>
+                            — выполнять расписанные тренировки для разных частей тела, следуя
+                            подробным инструкциям и советам профессиональных тренеров.
+                        </li>
+                    </ul>
+                </article>
+                <TextBlock sizeEm='1.28em' weight='500'>
+                    CleverFit — это не просто приложение, а твой личный помощник в мире фитнеса. Не
+                    откладывай на завтра — начни тренироваться уже сегодня!
+                </TextBlock>
+                <div className='main__content_plans'>
+                    <ReminderComponent text='Расписать тренировки' />
+                    <ReminderComponent text='Назначить календарь' />
+                    <ReminderComponent text='Заполнить профиль' />
+                </div>
+                <MainFooter />
             </div>
-            <h1>Vite + React + TS</h1>
-            <div className='card'>
-                <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-                <p>
-                    Edit <code>src/pages/main-page.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
-        </>
+        </main>
     );
 };

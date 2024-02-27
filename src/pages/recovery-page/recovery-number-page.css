@@ -1,0 +1,39 @@
+.recovery__text {
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 130%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    color: #8c8c8c;
+}
+@media (max-width: 767px) {
+    .recovery__text {
+        display: inline-block;
+        padding: 0 20px;
+    }
+}
+.containerV {
+    max-width: 300px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 12px;
+    margin: 0 auto 24px auto;
+}
+.characterV {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    background: #fff;
+}
+.characterV.border-red {
+    border: 1px solid red;
+}
+.characterV-FilledV {
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 40px;
+    color: #262626;
+}

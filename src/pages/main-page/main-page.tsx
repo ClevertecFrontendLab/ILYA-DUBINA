@@ -1,4 +1,4 @@
-import { ReminderComponent, TextBlock } from '../../global/component';
+import { ReminderComponent, TextBlock } from '../../global';
 import { MainSidebar, MainHeader, MainFooter } from '../../components/mainPage';
 import './main-page.css';
 

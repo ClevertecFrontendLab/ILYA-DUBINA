@@ -14,11 +14,15 @@ import {
     IdcardOutlined,
 } from '@ant-design/icons';
 import './mainSidebar.css';
+import { CommonRoutes } from '../../../routes/CommonRoutes';
 
 export const MainSidebar: React.FC = () => {
     const [close, setClose] = useState(false);
     const setCloseSidebar = () => {
         setClose((item) => !item);
+    };
+    const exitApplication = () => {
+        localStorage.clear();
     };
     return (
         <aside className={!close ? 'sidebar' : 'sidebar close'}>
@@ -115,7 +119,11 @@ export const MainSidebar: React.FC = () => {
                 </ul>
             </nav>
             <div className={`sidebar__exit_${close}`}>
-                <Link className='sidebar__exit_link' to='#'>
+                <Link
+                    className='sidebar__exit_link'
+                    to={CommonRoutes.auth.auth}
+                    onClick={exitApplication}
+                >
                     <img className='link__icon' src={exit} alt='картинка выхода' />
                     <span className={!close ? 'link__textExit' : 'link__text_close'}>Выход</span>
                 </Link>

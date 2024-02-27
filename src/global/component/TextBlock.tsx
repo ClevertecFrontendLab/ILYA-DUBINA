@@ -6,7 +6,6 @@ type Props = {
     weight?: string;
     children: string;
 };
-
 export const TextBlock: React.FC<Props> = ({
     color = '#262626',
     sizeEm = '1em',

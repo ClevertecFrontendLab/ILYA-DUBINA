@@ -7,7 +7,6 @@ type Props = {
     text?: string;
     download?: boolean;
 };
-
 export const ReminderComponent: React.FC<Props> = ({ text = ' ', download = false }) => {
     const n: string[] = text.split(' ');
     const word: string = n[n.length - 1].toLocaleLowerCase();

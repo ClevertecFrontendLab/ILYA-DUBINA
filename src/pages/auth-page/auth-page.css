@@ -1,0 +1,274 @@
+#root {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.auth {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../../images/auth/background.jpg);
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.auth__mask {
+    display: table;
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(121, 156, 212, 0.5);
+    backdrop-filter: blur(5px);
+}
+.container {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 16px;
+}
+.auth__mask_content {
+    max-width: 539px;
+    margin: 0 auto;
+    padding: 64px 85.5px 174px 85.5px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    background: #fff;
+}
+@media (max-width: 767px) {
+    .auth__mask_content {
+        padding: 32px 16px 124px 16px;
+    }
+}
+.content__logo {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 0 0 48px 0;
+}
+@media (max-width: 767px) {
+    .content__logo {
+        margin: 0 0 32px 0;
+    }
+}
+.content__logo_clever {
+    width: 227px;
+    height: 54px;
+}
+@media (max-width: 767px) {
+    .content__logo_clever {
+        width: 149px;
+        height: 36px;
+    }
+}
+.content__logo_fit {
+    width: 79px;
+    height: 69px;
+    position: relative;
+    top: 2px;
+    left: -3px;
+}
+@media (max-width: 767px) {
+    .content__logo_fit {
+        width: 52px;
+        height: 46px;
+    }
+}
+.content__buttons {
+    width: 368px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0 0 24px 0;
+}
+@media (max-width: 767px) {
+    .content__buttons {
+        width: 296px;
+        margin: 0 auto 24px auto;
+    }
+}
+.content__buttons a.content__buttons_entrance,
+.content__buttons a.content__buttons_registration {
+    display: inline-block;
+    flex: 50%;
+    font-family: 'InterRegular';
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 130%;
+    padding: 12.5px 41px;
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 0px;
+    background-color: transparent;
+    color: #262626;
+    transition: all 1s ease-in-out;
+}
+@media (max-width: 767px) {
+    .content__buttons a.content__buttons_entrance,
+    .content__buttons a.content__buttons_registration {
+        padding: 14px 30px;
+        font-size: 0.875em;
+    }
+}
+.content__buttons a.content__buttons_entrance:hover,
+.content__buttons a.content__buttons_registration:hover {
+    color: #2f54eb;
+    border-bottom: 2px solid #2f54eb;
+    border-top: 0px solid transparent;
+    border-left: 0px solid transparent;
+    border-right: 0px solid transparent;
+    transition: all 1s ease-in-out;
+}
+.content__buttons a.content__buttons_entrance:focus,
+.content__buttons a.content__buttons_registration:focus {
+    outline: transparent;
+}
+.content__buttons_form {
+    min-width: 100%;
+    max-width: 368px;
+    text-align: left;
+}
+@media (max-width: 767px) {
+    .content__buttons_form {
+        max-width: 296px;
+    }
+}
+.content__buttons_form input,
+.content__buttons_form button {
+    width: 100%;
+    min-height: 40px;
+    font-family: 'InterRegular';
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 130%;
+    color: #262626;
+}
+.content__buttons_form button {
+    font-size: 1.143em;
+}
+@media (max-width: 767px) {
+    .content__buttons_form button {
+        font-size: 1em;
+    }
+}
+.content__buttons_form span {
+    padding: 0;
+    margin: 0;
+}
+span.prefix__text {
+    display: inline-block;
+    padding: 8px 12px;
+}
+.content__buttons_form .form__password input {
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 130%;
+    padding: 4px 0px 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+.content__buttons_form .form__password input + span {
+    padding: 0 12px 0 9px;
+}
+.form__email {
+    margin-bottom: 32px;
+}
+.form__password {
+    margin-bottom: 54px;
+}
+.form__password_input {
+    border-radius: 2px;
+}
+#formRegistration_password_help,
+#formStart_email_help,
+#formStart_password_help {
+    font-family: 'InterRegular';
+    font-weight: 400;
+    font-size: 0.875em;
+    letter-spacing: -0.01em;
+    line-height: 130%;
+    margin: 0 0 28px 0;
+    color: #8c8c8c;
+}
+#formStart_email_help,
+#formStart_password_help {
+    color: #ff4d4f;
+}
+.form__open {
+    margin-bottom: 16px;
+}
+.form__openGoogle {
+    margin: 0;
+}
+.form__open_button {
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
+    border: 1px solid #2f54eb;
+}
+.form__open_button span {
+    color: #fff;
+}
+.form__open_button:focus,
+.form__openGoogle_button:focus {
+    outline: none;
+}
+.form__checkbox_remember,
+.form__checkbox_link {
+    margin: 0;
+}
+.content__buttons_form .form__checkbox div.ant-form-item-control-input-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content__buttons_form .form__checkbox label span {
+    font-family: 'InterRegular';
+    text-align: left;
+    color: rgba(0, 0, 0, 0.85);
+}
+.content__buttons_form .form__checkbox label span.ant-checkbox {
+    margin: 0 8px 0 0;
+}
+.content__buttons_form button.login-form-forgot {
+    font-size: 1.143em;
+    color: #2f54eb;
+    margin: 0 0 0 0;
+    border: transparent;
+    background-color: transparent;
+}
+@media (max-width: 767px) {
+    .content__buttons_form button.login-form-forgot {
+        font-size: 1em;
+    }
+}
+.content__buttons_form button.login-form-forgot:focus {
+    outline: none;
+}
+.content__buttons_form .form__openGoogle button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.02);
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+}
+.content__buttons_form .form__openGoogle button span {
+    font-size: 1.05em;
+    padding: 0;
+    margin: 0 0 0 10px;
+}
+@media (max-width: 767px) {
+    .content__buttons_form .form__openGoogle button span {
+        margin: 0;
+        font-size: 1em;
+    }
+}
+.content__buttons_form .form__openGoogle button span svg {
+    width: 14px;
+    height: 14px;
+}
+@media (max-width: 767px) {
+    .content__buttons_form .form__openGoogle button span svg {
+        display: none;
+    }
+}
+.content__buttons a.blueColor {
+    color: #2f54eb;
+    border-bottom: 2px solid #2f54eb;
+}
+.colorButton span {
+    color: #bfbfbf;
+}

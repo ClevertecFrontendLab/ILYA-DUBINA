@@ -232,6 +232,7 @@ const LoginSlice = createSlice({
             .addCase(setNewCodeV.fulfilled, (state: state) => {
                 state.isLoading = false;
                 state.isSuccess = true;
+                state.isError = false;
             })
             .addCase(setNewCodeV.rejected, (state: state) => {
                 state.isLoading = false;

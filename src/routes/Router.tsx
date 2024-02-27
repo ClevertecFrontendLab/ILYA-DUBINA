@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { SpinerLoading } from '../global/index.ts';
 import {
@@ -11,6 +11,7 @@ import {
     RecoveryErrorNotExistPage,
     RecoveryErrorServerPage,
     RecoveryNewPasswordPage,
+    MainPage,
     RecoveryNumberPage,
     RecoverySuccessPasswordChangePage,
     RegistrationPage,
@@ -19,10 +20,6 @@ import { CommonRoutes } from './CommonRoutes.ts';
 import { push } from 'redux-first-history';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
-
-const MainPage = lazy(async () => ({
-    default: (await import('../pages/main-page/main-page.tsx')).MainPage,
-}));
 
 export const Router = () => {
     const dispatch = useDispatch<AppDispatch>();

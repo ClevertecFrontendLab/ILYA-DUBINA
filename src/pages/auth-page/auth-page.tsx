@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Checkbox, Form, Input, ConfigProvider } from 'antd';
-import { GooglePlusOutlined } from '@ant-design/icons';
+import { GooglePlusOutlined, EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import clever from '../../images/sidebar/Clever.svg';
 import fit from '../../images/sidebar/fit.svg';
 import { REG_RUS, REG_NUM_WORD, REG_EMAIL } from '../../global/const';
@@ -17,6 +17,7 @@ import {
 import { AppDispatch, RootState } from '@redux/configure-store';
 import { CommonRoutes } from '../../routes/CommonRoutes';
 import { SpinerLoading } from '../../global';
+import 'antd/dist/antd.css';
 import './auth-page.css';
 
 type stateRedux = {
@@ -143,14 +144,7 @@ export const AuthPage: React.FC = () => {
                                 Регистрация
                             </NavLink>
                         </div>
-                        <ConfigProvider
-                            theme={{
-                                token: {
-                                    colorPrimary: '#2f54eb',
-                                    borderRadius: 2,
-                                },
-                            }}
-                        >
+                        <ConfigProvider componentSize={'small'}>
                             <Form
                                 className='content__buttons_form'
                                 name='formStart'
@@ -216,6 +210,9 @@ export const AuthPage: React.FC = () => {
                                         className='form__password_input'
                                         placeholder='Пароль'
                                         data-test-id='login-password'
+                                        iconRender={(visible) =>
+                                            visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                                        }
                                     />
                                 </Form.Item>
                                 <Form.Item className='form__checkbox'>

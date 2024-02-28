@@ -26,11 +26,22 @@
         margin-bottom: 16px;
     }
 }
-.twoPassword {
+.form__password.twoPassword {
     margin-bottom: 62px;
 }
 @media (max-width: 767px) {
     .twoPassword {
         margin-bottom: 54px;
     }
+}
+#formRegistration_password,
+#formRegistration_twoPassword {
+    padding: 4px 0 4px 12px;
+}
+.registration__form__password #formRegistration_password_help {
+    height: 46px;
+    margin: 0 0 0 0;
+}
+#formRegistration_email_help {
+    display: none;
 }

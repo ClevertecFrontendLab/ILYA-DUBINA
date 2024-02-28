@@ -29,10 +29,59 @@ type Props = {
     children?: React.ReactNode;
     password?: boolean;
     paddingGeneral?: 'little' | '';
+    paddingText?: 'big' | '';
+};
+type dataTestIdObjectType = {
+    successReg: string;
+    error: string;
+    errorRepeat: string;
+    warning: string;
+    errorEmail: string;
+    errorServer: string;
+    errorPassword: string;
+    successChangeEmail: string;
+    default: string;
+    [key: string]: string;
+};
+type toObjectType = {
+    success: string;
+    error: string;
+    errorRepeat: string;
+    errorPassword: string;
+    warning: string;
+    errorEmail: string;
+    errorServer: string;
+    successChangeEmail: string;
+    recovery: string;
+    successReg: string;
+    [key: string]: string;
+};
+const dataTestIdObject: dataTestIdObjectType = {
+    successReg: 'registration-enter-button',
+    error: 'registration-retry-button',
+    errorRepeat: 'registration-back-button',
+    warning: 'login-retry-button',
+    errorEmail: 'check-retry-button',
+    errorServer: 'check-back-button',
+    errorPassword: 'change-retry-button',
+    successChangeEmail: 'change-entry-button',
+    default: 'default',
+};
+const toObject: toObjectType = {
+    success: CommonRoutes.main,
+    errorRepeat: CommonRoutes.auth.registration,
+    error: CommonRoutes.auth.registration,
+    errorPassword: CommonRoutes.auth.changePassword,
+    warning: CommonRoutes.auth.auth,
+    errorEmail: CommonRoutes.auth.auth,
+    errorServer: CommonRoutes.auth.auth,
+    successChangeEmail: CommonRoutes.auth.auth,
+    recovery: CommonRoutes.auth.auth,
+    successReg: CommonRoutes.auth.auth,
 };
 
 export const ErrorAndWarningComponent: React.FC<Props> = ({
-    warningContent,
+    warningContent = 'default',
     title,
     text,
     textLink,
@@ -41,6 +90,7 @@ export const ErrorAndWarningComponent: React.FC<Props> = ({
     children,
     password = false,
     paddingGeneral = '',
+    paddingText = '',
 }) => {
     return (
         <article className='containerWarning'>
@@ -74,39 +124,15 @@ export const ErrorAndWarningComponent: React.FC<Props> = ({
                     </div>
                 ) : null}
                 <h2 className='errorAndWarningComponent__title'>{title}</h2>
-                {!password ? <p className='errorAndWarningComponent__text'>{text}</p> : null}
+                {!password ? (
+                    <p className={'errorAndWarningComponent__text' + ` ${paddingText}`}>{text}</p>
+                ) : null}
                 {children}
                 {link ? (
                     <Link
                         className={`errorAndWarningComponent__link ${paddingLink}`}
-                        to={
-                            warningContent === 'success'
-                                ? CommonRoutes.main
-                                : warningContent === 'error' || warningContent === 'errorRepeat'
-                                ? CommonRoutes.auth.registration
-                                : warningContent === 'errorPassword'
-                                ? CommonRoutes.auth.changePassword
-                                : CommonRoutes.auth.auth
-                        }
-                        data-test-id={
-                            warningContent === 'successReg'
-                                ? 'registration-enter-button'
-                                : warningContent === 'error'
-                                ? 'registration-retry-button'
-                                : warningContent === 'errorRepeat'
-                                ? 'registration-back-button'
-                                : warningContent === 'warning'
-                                ? 'login-retry-button'
-                                : warningContent === 'errorEmail'
-                                ? 'check-retry-button'
-                                : warningContent === 'errorServer'
-                                ? 'check-back-button'
-                                : warningContent === 'errorPassword'
-                                ? 'change-retry-button'
-                                : warningContent === 'successChangeEmail'
-                                ? 'change-entry-button'
-                                : null
-                        }
+                        to={toObject[warningContent]}
+                        data-test-id={dataTestIdObject[warningContent]}
                     >
                         {textLink}
                     </Link>

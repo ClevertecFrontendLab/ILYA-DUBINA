@@ -11,11 +11,12 @@ export const AuthErrorRegistrationRepeatEmailPage: React.FC = () => {
                     title='Данные не сохранились'
                     text={
                         <React.Fragment>
-                            Такой e-mail уже записан в системе. Попробуйте <br /> зарегистрироваться
-                            по другому e-mail.
+                            Такой e-mail уже записан в системе. Попробуйте <br />
+                            зарегистрироваться по другому e-mail.
                         </React.Fragment>
                     }
                     textLink='Назад к регистрации'
+                    paddingText={'big'}
                 />
             </div>
         </main>

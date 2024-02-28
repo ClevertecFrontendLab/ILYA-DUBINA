@@ -29,7 +29,6 @@ export const RecoveryNumberPage: React.FC = () => {
         setCode(e);
     };
     useEffect(() => {
-        setErrorNumber(false);
         if (code.length === 6) {
             setLoading(true);
             dispatch(saveCode({ code }));
@@ -62,8 +61,9 @@ export const RecoveryNumberPage: React.FC = () => {
                     }
                     text={
                         <React.Fragment>
-                            Мы отправили вам на e-mail <strong>{emailV}</strong>
-                            <br className='recovery__text' />
+                            Мы отправили вам на e-mail <br className='recovery__textbrOne' />
+                            <strong>{emailV}</strong>
+                            <br className='recovery__textbrTwo' />
                             шестизначный код. Введите его в поле ниже.
                         </React.Fragment>
                     }

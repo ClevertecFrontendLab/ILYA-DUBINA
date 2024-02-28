@@ -26,7 +26,7 @@
 .errorAndWarningComponent__title {
     font-family: 'InterMedium';
     font-weight: 500;
-    font-size: 1.5em;
+    font-size: 24px;
     line-height: 130%;
     text-align: center;
     white-space: pre-wrap;
@@ -37,7 +37,7 @@
 .errorAndWarningComponent__text,
 .errorAndWarningComponent__link {
     font-weight: 400;
-    font-size: 0.875em;
+    font-size: 14px;
     line-height: 130%;
     text-align: center;
     white-space: pre-wrap;
@@ -48,6 +48,9 @@
 @media (max-width: 767px) {
     .errorAndWarningComponent__text {
         padding: 0 1.8px;
+    }
+    .big {
+        padding: 0 5px;
     }
 }
 .errorAndWarningComponent__link {

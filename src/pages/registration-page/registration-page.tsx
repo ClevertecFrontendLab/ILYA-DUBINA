@@ -109,143 +109,132 @@ export const RegistrationPage: React.FC = () => {
                                 Регистрация
                             </NavLink>
                         </div>
-                        <ConfigProvider
-                            theme={{
-                                token: {
-                                    colorPrimary: '#2f54eb',
-                                    borderRadius: 2,
-                                },
-                            }}
+                        <Form
+                            className='content__buttons_form'
+                            name='formRegistration'
+                            onFinish={onFinish}
+                            onFinishFailed={onFinishFailed}
                         >
-                            <Form
-                                className='content__buttons_form'
-                                name='formRegistration'
-                                onFinish={onFinish}
-                                onFinishFailed={onFinishFailed}
+                            <Form.Item
+                                className='form__email'
+                                name='email'
+                                help=''
+                                rules={[
+                                    {
+                                        type: 'email',
+                                    },
+                                    () => ({
+                                        validator(_, value) {
+                                            const no = REG_EMAIL.test(value);
+                                            if (no) {
+                                                return Promise.resolve();
+                                            }
+                                            return Promise.reject(new Error(''));
+                                        },
+                                    }),
+                                    {
+                                        required: true,
+                                    },
+                                ]}
                             >
-                                <Form.Item
-                                    className='form__email'
-                                    name='email'
-                                    help=''
-                                    rules={[
-                                        {
-                                            type: 'email',
+                                <Input
+                                    className='form__password_input'
+                                    addonBefore={prefixSelector}
+                                    data-test-id='registration-email'
+                                />
+                            </Form.Item>
+                            <Form.Item
+                                className='form__password registration__form__password'
+                                name='password'
+                                help='Пароль не менее 8 символов, с заглавной буквой и цифрой'
+                                shouldUpdate
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: '',
+                                    },
+                                    () => ({
+                                        validator(_, value) {
+                                            const no = REG_RUS.test(value);
+                                            const result = !no && REG_NUM_WORD.test(value);
+                                            if (result) {
+                                                return Promise.resolve();
+                                            }
+                                            return Promise.reject(
+                                                new Error(
+                                                    'Пароль не менее 8 символов, с заглавной буквой и цифрой!',
+                                                ),
+                                            );
                                         },
-                                        () => ({
-                                            validator(_, value) {
-                                                const no = REG_EMAIL.test(value);
-                                                if (no) {
-                                                    return Promise.resolve();
-                                                }
-                                                return Promise.reject(new Error(''));
-                                            },
-                                        }),
-                                        {
-                                            required: true,
+                                    }),
+                                ]}
+                            >
+                                <Input.Password
+                                    className='form__password_input'
+                                    placeholder='Пароль'
+                                    data-test-id='registration-password'
+                                />
+                            </Form.Item>
+                            <Form.Item
+                                className='form__password twoPassword'
+                                name='twoPassword'
+                                dependencies={['password']}
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: '',
+                                    },
+                                    ({ getFieldValue }) => ({
+                                        validator(_, value) {
+                                            if (!value || getFieldValue('password') === value) {
+                                                return Promise.resolve();
+                                            }
+                                            return Promise.reject(new Error('Пароли не совпадают'));
                                         },
-                                    ]}
-                                >
-                                    <Input
-                                        className='form__password_input'
-                                        addonBefore={prefixSelector}
-                                        data-test-id='registration-email'
-                                    />
-                                </Form.Item>
-                                <Form.Item
-                                    className='form__password registration__form__password'
-                                    name='password'
-                                    help='Пароль не менее 8 символов, с заглавной буквой и цифрой'
-                                    shouldUpdate
-                                    rules={[
-                                        {
-                                            required: true,
-                                            message: '',
-                                        },
-                                        () => ({
-                                            validator(_, value) {
-                                                const no = REG_RUS.test(value);
-                                                const result = !no && REG_NUM_WORD.test(value);
-                                                if (result) {
-                                                    return Promise.resolve();
-                                                }
-                                                return Promise.reject(
-                                                    new Error(
-                                                        'Пароль не менее 8 символов, с заглавной буквой и цифрой!',
-                                                    ),
-                                                );
-                                            },
-                                        }),
-                                    ]}
-                                >
-                                    <Input.Password
-                                        className='form__password_input'
-                                        placeholder='Пароль'
-                                        data-test-id='registration-password'
-                                    />
-                                </Form.Item>
-                                <Form.Item
-                                    className='form__password twoPassword'
-                                    name='twoPassword'
-                                    dependencies={['password']}
-                                    rules={[
-                                        {
-                                            required: true,
-                                            message: '',
-                                        },
-                                        ({ getFieldValue }) => ({
-                                            validator(_, value) {
-                                                if (!value || getFieldValue('password') === value) {
-                                                    return Promise.resolve();
-                                                }
-                                                return Promise.reject(
-                                                    new Error('Пароли не совпадают'),
-                                                );
-                                            },
-                                        }),
-                                    ]}
-                                >
-                                    <Input.Password
-                                        className='form__password_input'
-                                        placeholder='Повторите пароль'
-                                        data-test-id='registration-confirm-password'
-                                    />
-                                </Form.Item>
-                                <Form.Item className='form__open' shouldUpdate>
-                                    {({ getFieldsValue }) => {
-                                        const { email, password, twoPassword } = getFieldsValue();
-                                        const no = REG_RUS.test(password);
-                                        const result = !no && REG_NUM_WORD.test(password);
-                                        const openButtonForm =
-                                            !!email &&
-                                            !!password &&
-                                            !!twoPassword &&
-                                            password === twoPassword &&
-                                            result;
-                                        return (
-                                            <Button
-                                                className={
-                                                    openButtonForm
-                                                        ? 'form__open_button'
-                                                        : 'form__open_button colorButton'
-                                                }
-                                                type='primary'
-                                                htmlType='submit'
-                                                disabled={!openButtonForm}
-                                                data-test-id='registration-submit-button'
-                                            >
-                                                Войти
-                                            </Button>
-                                        );
-                                    }}
-                                </Form.Item>
-                                <Form.Item className='form__openGoogle'>
-                                    <Button className='form__openGoogle_button' htmlType='submit'>
-                                        <GooglePlusOutlined style={{ color: '#262626' }} />
-                                        Регистрация через Google
-                                    </Button>
-                                </Form.Item>
-                            </Form>
-                        </ConfigProvider>
+                                    }),
+                                ]}
+                            >
+                                <Input.Password
+                                    className='form__password_input'
+                                    placeholder='Повторите пароль'
+                                    data-test-id='registration-confirm-password'
+                                />
+                            </Form.Item>
+                            <Form.Item className='form__open' shouldUpdate>
+                                {({ getFieldsValue }) => {
+                                    const { email, password, twoPassword } = getFieldsValue();
+                                    const no = REG_RUS.test(password);
+                                    const result = !no && REG_NUM_WORD.test(password);
+                                    const openButtonForm =
+                                        !!email &&
+                                        !!password &&
+                                        !!twoPassword &&
+                                        password === twoPassword &&
+                                        result;
+                                    return (
+                                        <Button
+                                            className={
+                                                openButtonForm
+                                                    ? 'form__open_button'
+                                                    : 'form__open_button colorButton'
+                                            }
+                                            type='primary'
+                                            htmlType='submit'
+                                            disabled={!openButtonForm}
+                                            data-test-id='registration-submit-button'
+                                        >
+                                            Войти
+                                        </Button>
+                                    );
+                                }}
+                            </Form.Item>
+                            <Form.Item className='form__openGoogle'>
+                                <Button className='form__openGoogle_button' htmlType='submit'>
+                                    <GooglePlusOutlined style={{ color: '#262626' }} />
+                                    Регистрация через Google
+                                </Button>
+                            </Form.Item>
+                        </Form>
                     </div>
                 </div>
             </div>

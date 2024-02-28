@@ -80,7 +80,7 @@ export const RecoveryNewPasswordPage: React.FC = () => {
                         onFinishFailed={onFinishFailed}
                     >
                         <Form.Item
-                            className='form__password registration__form__password'
+                            className='form__password registration__form__password newPassword__item'
                             name='password'
                             help='Пароль не менее 8 символов, с заглавной буквой и цифрой'
                             shouldUpdate

@@ -1,0 +1,47 @@
+#formRegistration_twoPassword_help {
+    font-family: 'InterRegular';
+    font-weight: 400;
+    font-size: 0.875em;
+    letter-spacing: -0.01em;
+    line-height: 130%;
+    margin: 0 0 28px 0;
+    color: #8c8c8c;
+}
+#formRegistration_twoPassword_help {
+    color: #ff4d4f;
+}
+.registration__auth__mask_content {
+    padding: 64px 85.5px;
+}
+@media (max-width: 767px) {
+    .registration__auth__mask_content {
+        padding: 32px 16px;
+    }
+}
+.registration__form__password {
+    margin-bottom: 28px;
+}
+@media (max-width: 767px) {
+    .registration__form__password {
+        margin-bottom: 16px;
+    }
+}
+.form__password.twoPassword {
+    margin-bottom: 62px;
+}
+@media (max-width: 767px) {
+    .twoPassword {
+        margin-bottom: 54px;
+    }
+}
+#formRegistration_password,
+#formRegistration_twoPassword {
+    padding: 4px 0 4px 12px;
+}
+.registration__form__password #formRegistration_password_help {
+    height: 46px;
+    margin: 0 0 0 0;
+}
+#formRegistration_email_help {
+    display: none;
+}

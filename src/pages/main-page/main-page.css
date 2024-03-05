@@ -4,11 +4,16 @@
     position: relative;
 }
 .main {
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     position: relative;
     background: url(../../images/Main-page.jpg) center no-repeat;
     background-size: cover;
+}
+.main__content {
+    width: calc(100% - 208px);
+    flex: 1 1 auto;
 }
 .main__content_can {
     max-width: 752px;

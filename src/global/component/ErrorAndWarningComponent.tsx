@@ -30,6 +30,8 @@ type Props = {
     password?: boolean;
     paddingGeneral?: 'little' | '';
     paddingText?: 'big' | '';
+    onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+    addClassNameText?: string;
 };
 type dataTestIdObjectType = {
     successReg: string;
@@ -79,7 +81,6 @@ const toObject: toObjectType = {
     recovery: CommonRoutes.auth.auth,
     successReg: CommonRoutes.auth.auth,
 };
-
 export const ErrorAndWarningComponent: React.FC<Props> = ({
     warningContent = 'default',
     title,
@@ -91,6 +92,8 @@ export const ErrorAndWarningComponent: React.FC<Props> = ({
     password = false,
     paddingGeneral = '',
     paddingText = '',
+    addClassNameText = '',
+    onClick,
 }) => {
     return (
         <article className='containerWarning'>
@@ -125,14 +128,21 @@ export const ErrorAndWarningComponent: React.FC<Props> = ({
                 ) : null}
                 <h2 className='errorAndWarningComponent__title'>{title}</h2>
                 {!password ? (
-                    <p className={'errorAndWarningComponent__text' + ` ${paddingText}`}>{text}</p>
+                    <p
+                        className={
+                            'errorAndWarningComponent__text ' + `${paddingText} ` + addClassNameText
+                        }
+                    >
+                        {text}
+                    </p>
                 ) : null}
                 {children}
                 {link ? (
                     <Link
                         className={`errorAndWarningComponent__link ${paddingLink}`}
-                        to={toObject[warningContent]}
+                        to={onClick ? '' : toObject[warningContent]}
                         data-test-id={dataTestIdObject[warningContent]}
+                        onClick={onClick}
                     >
                         {textLink}
                     </Link>

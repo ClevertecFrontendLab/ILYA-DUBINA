@@ -15,6 +15,7 @@ import {
     RecoveryNumberPage,
     RecoverySuccessPasswordChangePage,
     RegistrationPage,
+    FeedbacksPage,
 } from '../pages';
 import { CommonRoutes } from './CommonRoutes.ts';
 import { push } from 'redux-first-history';
@@ -25,9 +26,10 @@ export const Router = () => {
     const dispatch = useDispatch<AppDispatch>();
     useEffect(() => {
         const haveToken = !!localStorage.getItem('token');
-        if (haveToken) {
+        if (haveToken && !window.location.reload) {
             dispatch(push(CommonRoutes.main));
         } else {
+            localStorage.clear();
             dispatch(push(CommonRoutes.auth.auth));
         }
     }, [dispatch]);
@@ -142,6 +144,14 @@ export const Router = () => {
                 element={
                     <Suspense fallback={<SpinerLoading />}>
                         <RecoverySuccessPasswordChangePage />
+                    </Suspense>
+                }
+            />
+            <Route
+                path={CommonRoutes.feedbacks}
+                element={
+                    <Suspense fallback={<SpinerLoading />}>
+                        <FeedbacksPage />
                     </Suspense>
                 }
             />

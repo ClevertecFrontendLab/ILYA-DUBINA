@@ -1,0 +1,23 @@
+.button__global {
+    width: 142px;
+    height: 40px;
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 130%;
+    text-align: center;
+    border: 1px solid #2f54eb;
+    border-radius: 2px;
+    padding: 4px 15px;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
+    color: #fff;
+    background: #2f54eb;
+}
+.button__global:focus {
+    outline: none;
+}
+@media (max-width: 501px) {
+    .button__global {
+        width: 100%;
+        padding: 11px 0;
+    }
+}

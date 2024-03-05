@@ -227,7 +227,7 @@
 .content__buttons_form button.login-form-forgot {
     font-size: 1.143em;
     color: #2f54eb;
-    margin: 0 0 0 0;
+    margin: 0;
     border: transparent;
     background-color: transparent;
 }
@@ -262,6 +262,8 @@
 .content__buttons_form .form__openGoogle button span svg {
     width: 14px;
     height: 14px;
+    position: relative;
+    top: 1.2px;
 }
 @media (max-width: 767px) {
     .content__buttons_form .form__openGoogle button span svg {
@@ -274,4 +276,23 @@
 }
 .colorButton span {
     color: #bfbfbf;
+}
+.true .ant-input-group-wrapper-status-error .ant-input-group-addon,
+.true .ant-input-wrapper.ant-input-group .ant-input.ant-input-sm.ant-input-status-error {
+    border: 1px solid #d9d9d9;
+    color: rgba(0, 0, 0, 0.85);
+}
+.true .ant-input-group-wrapper-status-error .ant-input-group-addon {
+    border-right: none;
+}
+.true .ant-form-item-explain-error {
+    display: none;
+}
+.true
+    .ant-input-affix-wrapper.ant-input-password.ant-input-affix-wrapper-sm.ant-input-affix-wrapper-status-error {
+    border: 1px solid #d9d9d9;
+    color: rgba(0, 0, 0, 0.85);
+}
+.true .ant-form-item-explain.ant-form-item-explain-connected {
+    display: none;
 }

@@ -1,10 +1,10 @@
 import { SettingOutlined } from '@ant-design/icons';
+import { HeaderGlobalComponent } from '../../../global/component';
 import './mainHeader.css';
 
 export const MainHeader: React.FC = () => {
     return (
-        <header className='header'>
-            <h4 className='header__main'>Главная</h4>
+        <HeaderGlobalComponent title={'Главная'}>
             <div className='header__welcome'>
                 <h1 className='header__welcome_title'>
                     Приветствуем тебя
@@ -16,6 +16,6 @@ export const MainHeader: React.FC = () => {
                     <span className='settings__text'>Настройки</span>
                 </button>
             </div>
-        </header>
+        </HeaderGlobalComponent>
     );
 };

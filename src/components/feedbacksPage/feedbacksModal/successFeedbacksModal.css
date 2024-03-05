@@ -1,0 +1,20 @@
+.ant-modal.modal-error {
+    margin: 0 auto;
+}
+.modal-success .ant-modal-content {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    box-shadow: none;
+}
+.modal-success .ant-modal-body {
+    padding: 0;
+}
+.ant-modal.modal-success .errorAndWarningComponent {
+    width: 539px;
+}
+@media (max-width: 501px) {
+    .ant-modal.modal-success .errorAndWarningComponent {
+        width: 328px;
+    }
+}

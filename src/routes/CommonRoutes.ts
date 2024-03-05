@@ -5,7 +5,6 @@ export const CommonRoutes = {
         confirmEmail: '/auth/confirm-email',
         changePassword: '/auth/change-password',
     },
-    main: '/main',
     result: {
         error: '/result/error',
         success: '/result/success',
@@ -16,4 +15,6 @@ export const CommonRoutes = {
         errorChangePassword: '/result/error-change-password',
         successChangePassword: '/result/success-change-password',
     },
+    main: '/main',
+    feedbacks: '/feedbacks',
 };

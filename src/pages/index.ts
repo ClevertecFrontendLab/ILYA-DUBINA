@@ -1,3 +1,4 @@
+export { FeedbacksPage } from './feedbacks-page/feedbacks-page';
 export { RegistrationPage } from './registration-page';
 export {
     RecoveryNumberPage,

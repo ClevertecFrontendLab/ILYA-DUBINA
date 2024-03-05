@@ -16,7 +16,7 @@ type setNewCodeVType = {
 };
 export const loginUser = createAsyncThunk(
     'users/loginUser',
-    async ({ email, password, remember }: loginUserType, { rejectWithValue }) => {
+    async ({ email, password, remember = true }: loginUserType, { rejectWithValue }) => {
         try {
             const link = 'https://marathon-api.clevertec.ru/auth/login';
             const params = {

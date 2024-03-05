@@ -68,6 +68,7 @@ export const FeedbacksPage: React.FC = () => {
     };
     useEffect(() => {
         const tokenStr = localStorage.getItem('token');
+        console.log(isSuccess, openTransferF, isError);
         if (tokenStr && !isSuccess && !openTransferF && !isError) {
             setFeedbacksLoading(true);
             dispatch(clearStateF());

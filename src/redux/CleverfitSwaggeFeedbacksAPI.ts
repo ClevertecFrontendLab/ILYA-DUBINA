@@ -52,7 +52,7 @@ export const setFeedbackUser = createAsyncThunk(
             const response: { status: number; data: object[] } = await axios.post(link, params, {
                 headers: { Authorization: `Bearer ${feedbackToken}`, withCredentials: true },
             });
-            if (response.status === 200) {
+            if (response.status === 200 || response.status === 201) {
                 return response.status;
             } else {
                 return rejectWithValue('Error: Something went wrong.');

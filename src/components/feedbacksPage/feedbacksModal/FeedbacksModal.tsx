@@ -30,7 +30,15 @@ export const FeedbacksModal: React.FC<props> = ({ handleCancel, setIsModalOpen, 
     const [ratingF, setRatingF] = useState<number>(ratingReduxF ? ratingReduxF : 0);
     const [messageF, setMessageF] = useState<string>(messageReduxF ? messageReduxF : '');
     const getRating = (e: any) => {
-        setRatingF(e.target.parentNode.id);
+        let parent = e.target;
+        let idElement;
+        while (parent) {
+            if (parent.getAttribute('id')) {
+                idElement = parent.getAttribute('id');
+            }
+            parent = parent.parentElement;
+        }
+        setRatingF(ratingF === idElement ? 0 : idElement);
     };
     const getMessageUser = (e: { target: { value: string } }) => {
         setMessageF(e.target.value);

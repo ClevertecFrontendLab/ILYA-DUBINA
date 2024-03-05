@@ -9,7 +9,7 @@ import {
     saveDataModal,
     setFeedbackUser,
 } from '@redux/CleverfitSwaggeFeedbacksAPI';
-import './feedbacksModal.css';
+import './FeedbacksModal.css';
 import { ButtonGlobalComponent } from '../../../global';
 
 type props = {

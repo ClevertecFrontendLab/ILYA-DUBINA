@@ -9,6 +9,11 @@
     row-gap: 20px;
     padding: 24px 24px 132px 24px;
 }
+@media (max-width: 901px) {
+    .cards__item {
+        padding: 24px 16px 48px 16px;
+    }
+}
 .all-content {
     overflow-y: auto;
     max-height: 100vh;
@@ -17,11 +22,6 @@
 }
 .all-content::-webkit-scrollbar {
     display: none;
-}
-@media (max-width: 501px) {
-    .cards__item {
-        padding: 24px 16px 48px 16px;
-    }
 }
 .cards__item_content {
     list-style-type: none;

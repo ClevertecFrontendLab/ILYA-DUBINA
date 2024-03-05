@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useSearchParams } from 'react-router-dom';
 import { SpinerLoading } from '../global/index.ts';
 import {
     AuthErrorRegistrationRepeatEmailPage,
@@ -24,15 +24,29 @@ import { AppDispatch } from '@redux/configure-store';
 
 export const Router = () => {
     const dispatch = useDispatch<AppDispatch>();
+    const [searchParams] = useSearchParams();
     useEffect(() => {
+        const navigationEntries: any = window.performance.getEntriesByType('navigation');
         const haveToken = !!localStorage.getItem('token');
-        if (haveToken && !window.location.reload) {
+        if (searchParams.get('accessToken')) {
+            const token = searchParams.get('accessToken');
+            token ? localStorage.setItem('token', token) : null;
             dispatch(push(CommonRoutes.main));
+        } else if (haveToken && navigationEntries[0].type !== 'reload') {
+            dispatch(push(CommonRoutes.main));
+        } else if (
+            navigationEntries[0].type === 'reload' &&
+            navigationEntries.length > 0 &&
+            (navigationEntries[0].name !== 'http://localhost:3000/' ||
+                navigationEntries[0].name !== 'http://localhost:3000/auth')
+        ) {
+            localStorage.clear();
+            dispatch(push(CommonRoutes.auth.auth));
         } else {
             localStorage.clear();
             dispatch(push(CommonRoutes.auth.auth));
         }
-    }, [dispatch]);
+    }, [dispatch, searchParams]);
     return (
         <Routes>
             <Route

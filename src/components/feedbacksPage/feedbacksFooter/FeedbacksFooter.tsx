@@ -42,10 +42,14 @@ export const FeedbacksFooter: React.FC<props> = ({ openModalElement, setIsErrorM
         setLoading(false);
     }, [openAllFeedbacks]);
     return (
-        <FooterGlobalComponent>
+        <FooterGlobalComponent addClassName='footer-feedbacks-block'>
             {(isLoading || loading) && <SpinerLoading />}
             <section className='footer__feedbacks'>
-                <ButtonGlobalComponent onClick={openModalElement} dataTestId='write-review'>
+                <ButtonGlobalComponent
+                    addClassName='footer__feedbacks_button'
+                    onClick={openModalElement}
+                    dataTestId='write-review'
+                >
                     Написать отзыв
                 </ButtonGlobalComponent>
                 <LinkGlobalComponent

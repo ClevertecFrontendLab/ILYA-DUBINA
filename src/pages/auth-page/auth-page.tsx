@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Checkbox, Form, Input, ConfigProvider } from 'antd';
 import { GooglePlusOutlined, EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
@@ -39,7 +39,6 @@ const prefixSelector = <Form.Item noStyle>e-mail:</Form.Item>;
 export const AuthPage: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [validFalse, setValidFalse] = useState<boolean>(false);
-    const [searchParams] = useSearchParams();
     const [form] = Form.useForm();
     const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
@@ -80,11 +79,6 @@ export const AuthPage: React.FC = () => {
         window.location.href = 'https://marathon-api.clevertec.ru/auth/google';
     };
     useEffect(() => {
-        if (searchParams.get('accessToken')) {
-            const token = searchParams.get('accessToken');
-            token ? localStorage.setItem('token', token) : null;
-            navigate(CommonRoutes.main);
-        }
         if (openTransferAuth && emailV) {
             setLoading(true);
             dispatch(clearDataEmail());
@@ -92,7 +86,7 @@ export const AuthPage: React.FC = () => {
             dispatch(clearState());
             dispatch(getNewEmailPassword(emailV));
         }
-    }, [dispatch, emailV, navigate, openTransferAuth, searchParams]);
+    }, [dispatch, emailV, navigate, openTransferAuth]);
     useEffect(() => {
         if (isSuccess && !blockError) {
             dispatch(clearState());

@@ -1,0 +1,22 @@
+.server-error-feedbacks {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    text-align: center;
+    margin: 0 0 24px 0;
+    color: #8c8c8c;
+}
+.server-error-feedbacks__br {
+    display: none;
+}
+@media (max-width: 501px) {
+    .server-error-feedbacks__br {
+        display: block;
+    }
+    .ant-modal.modal-success.modal__server .errorAndWarningComponent {
+        width: 328px;
+    }
+}
+.modal__server-feedbacks {
+    margin: 0;
+}

@@ -1,16 +1,20 @@
-import { Link } from 'react-router-dom';
-import { ReminderComponent } from '../../../global/component';
+import { CommonRoutes } from '../../../routes/CommonRoutes';
+import {
+    FooterGlobalComponent,
+    LinkGlobalComponent,
+    ReminderComponent,
+} from '../../../global/component';
 import './mainFooter.css';
 
 export const MainFooter: React.FC = () => {
     return (
-        <>
-            <footer className='footer'>
-                <Link className='footer__link' to={'#'}>
+        <FooterGlobalComponent>
+            <section className='footer__main'>
+                <LinkGlobalComponent toText={CommonRoutes.feedbacks} dataTestId='see-reviews'>
                     Смотреть отзывы
-                </Link>
+                </LinkGlobalComponent>
                 <ReminderComponent download={true} />
-            </footer>
-        </>
+            </section>
+        </FooterGlobalComponent>
     );
 };

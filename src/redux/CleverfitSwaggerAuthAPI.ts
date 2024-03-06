@@ -16,7 +16,7 @@ type setNewCodeVType = {
 };
 export const loginUser = createAsyncThunk(
     'users/loginUser',
-    async ({ email, password, remember }: loginUserType, { rejectWithValue }) => {
+    async ({ email, password, remember = true }: loginUserType, { rejectWithValue }) => {
         try {
             const link = 'https://marathon-api.clevertec.ru/auth/login';
             const params = {
@@ -25,7 +25,6 @@ export const loginUser = createAsyncThunk(
             };
             const response = await axios.post(link, params);
             const data = await response.data;
-            console.log(email, password, remember, response);
             if (response.status === 200) {
                 remember && localStorage.setItem('token', data.accessToken);
                 return data;
@@ -105,7 +104,6 @@ export const setNewCodeV = createAsyncThunk(
         }
     },
 );
-
 type state = {
     token: string;
     isLoading: boolean;
@@ -202,7 +200,6 @@ const LoginSlice = createSlice({
                 state.isSuccess = true;
             })
             .addCase(getNewEmailPassword.rejected, (state: state, { payload }: any) => {
-                console.log(payload);
                 state.isLoading = false;
                 state.isError = true;
                 state.errorStatus =
@@ -219,7 +216,6 @@ const LoginSlice = createSlice({
                 state.isSuccess = true;
             })
             .addCase(getNewCodeV.rejected, (state: state, { payload }: any) => {
-                console.log(payload);
                 state.isLoading = false;
                 state.isError = true;
                 state.isSuccess = false;

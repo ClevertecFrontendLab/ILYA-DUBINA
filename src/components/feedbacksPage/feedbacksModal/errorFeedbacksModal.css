@@ -1,0 +1,40 @@
+.feedback-error {
+    display: flex;
+    justify-content: space-between;
+}
+.feedback-error__comment,
+.feedback-error__close {
+    width: 100%;
+}
+.feedback-error__close {
+    background-color: transparent;
+    margin: 0 0 0 8px;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.02);
+    color: #262626;
+}
+@media (max-width: 501px) {
+    .modal__feedback-error {
+        letter-spacing: -0.1px;
+    }
+    .modal-error .errorAndWarningComponent__title {
+        letter-spacing: -0.1px;
+    }
+}
+.modal-error .ant-modal-content {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    box-shadow: none;
+}
+.modal-error .ant-modal-body {
+    padding: 0;
+}
+.ant-modal.modal-error .errorAndWarningComponent {
+    width: 539px;
+}
+@media (max-width: 501px) {
+    .ant-modal.modal-error .errorAndWarningComponent {
+        width: 328px;
+    }
+}

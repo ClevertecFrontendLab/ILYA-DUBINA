@@ -1,0 +1,20 @@
+.footer__feedbacks {
+    display: flex;
+    column-gap: 8px;
+}
+@media (max-width: 767px) {
+    .footer__feedbacks {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer__feedbacks_link {
+        margin: 16px 0 0 0;
+    }
+    .footer__feedbacks_button {
+        width: 100%;
+    }
+    .footer-feedbacks-block {
+        margin: 0 0 0 16px;
+        padding: 0 16px 42px 0;
+    }
+}

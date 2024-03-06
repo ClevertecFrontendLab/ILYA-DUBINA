@@ -1,0 +1,16 @@
+.feedbacks__header {
+    font-weight: 400;
+    font-size: 0.875em;
+    padding: 0;
+    color: #8c8c8c;
+}
+.feedbacks__header_next {
+    padding: 0;
+    margin: 0 0 0 8px;
+}
+.feedbacks__header_next {
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 130%;
+    color: #262626;
+}

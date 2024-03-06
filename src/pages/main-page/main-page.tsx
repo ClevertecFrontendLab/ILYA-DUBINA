@@ -1,7 +1,7 @@
 import { ReminderComponent, SpinerLoading, TextBlock } from '../../global';
 import { MainSidebar, MainHeader, MainFooter } from '../../components/mainPage';
-import './main-page.css';
 import { useEffect, useState } from 'react';
+import './main-page.css';
 
 export const MainPage: React.FC = () => {
     const [once, setOnce] = useState(false);
@@ -36,10 +36,10 @@ export const MainPage: React.FC = () => {
                             </li>
                         </ul>
                     </article>
-                    <TextBlock sizeEm='1.28em' weight='500'>
-                        CleverFit — это не просто приложение, а твой личный помощник в мире фитнеса.
-                        Не откладывай на завтра — начни тренироваться уже сегодня!
-                    </TextBlock>
+                    <TextBlock
+                        text='CleverFit — это не просто приложение, а твой личный помощник в мире фитнеса.
+                        Не откладывай на завтра — начни тренироваться уже сегодня!'
+                    />
                     <div className='main__content_plans'>
                         <ReminderComponent text='Расписать тренировки' />
                         <ReminderComponent text='Назначить календарь' />

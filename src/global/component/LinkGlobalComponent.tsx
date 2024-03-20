@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import './linkGlobalComponent.css';
 type props = {
     toText?: string;
-    children?: string;
+    children?: string | JSX.Element;
     addClassName?: string;
     onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
     dataTestId?: string;

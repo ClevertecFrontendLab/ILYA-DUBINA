@@ -1,0 +1,114 @@
+.ant-drawer.ant-drawer-right.no-mask.sidebar-calendar.ant-drawer-open .ant-drawer-content {
+    border-radius: 8px 0 0 8px;
+    box-shadow: 0 9px 28px 8px rgba(0, 0, 0, 0.05), 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+        0 6px 16px 0 rgba(0, 0, 0, 0.08);
+}
+.ant-drawer.ant-drawer-right.no-mask.sidebar-calendar.ant-drawer-open .ant-drawer-content-wrapper {
+    box-shadow: none;
+}
+.sidebar-calendar .ant-drawer-body {
+    border-radius: 8px 0 0 8px;
+    padding: 24px 32px 0 32px;
+    box-shadow: 0 9px 28px 8px rgba(0, 0, 0, 0.05), 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+        0 6px 16px 0 rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+}
+.sidebar-calendar__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 16px 0;
+}
+.sidebar-calendar__header_title {
+    display: flex;
+    align-items: center;
+}
+.title__sidebar-calendar {
+    font-weight: 500;
+    font-size: 1.25em;
+    line-height: 130%;
+    color: #262626;
+    margin: 0 10px;
+}
+.sidebar-calendar__traning_date,
+.calendar-training-modal__item_text.sidebar-calendar__traning_text {
+    font-weight: 500;
+    font-size: 0.875em;
+    line-height: 130%;
+    color: #8c8c8c;
+}
+.calendar-training-modal__item_text.sidebar-calendar__traning_text {
+    margin: 0 0 0 16px;
+}
+.calendar-training-modal__traning__item
+    .calendar-training-modal__item_text.sidebar-calendar__traning_text::after {
+    top: 6px;
+}
+.sidebar-calendar__traning {
+    margin: 0 0 8px 0;
+}
+.ant-form.ant-form-horizontal.sidebar-calendar__form {
+    overflow-y: auto;
+    max-height: calc(100vh - 14vh);
+    padding: 24px 0;
+}
+.ant-form.ant-form-horizontal.sidebar-calendar__form::-webkit-scrollbar-track {
+    border: 1px solid #fff;
+    padding: 2px 0;
+    background-color: #fff;
+}
+.ant-form.ant-form-horizontal.sidebar-calendar__form::-webkit-scrollbar {
+    width: 8px;
+}
+.ant-form.ant-form-horizontal.sidebar-calendar__form::-webkit-scrollbar-thumb {
+    background-color: #bfbfbf;
+    border: 1px solid #bfbfbf;
+    border-radius: 99px;
+    padding: 0px 4px;
+}
+.sidebar-calendar__form .ant-form-item {
+    margin: 0;
+}
+.sidebar-calendar__form_item {
+    margin: 0 0 24px 0;
+}
+.item__sidebar-calendar_text {
+    width: 120px;
+    height: 24px;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 0.857em;
+    line-height: 130%;
+    padding: 3px 8px;
+    margin: 5px 0 6px 0;
+    color: #262626;
+    border-bottom: 1px solid #f0f0f0;
+    background: #f0f0f0;
+}
+.item__sidebar-calendar_text-next {
+    width: 89px;
+}
+.sidebar-calendar__form .ant-input-number.ant-input-number-in-form-item,
+.sidebar-calendar__form .ant-input-number-input {
+    height: 24px;
+}
+.sidebar-calendar__form .item__sidebar-calendar_access .ant-form-item-control-input-content {
+    max-width: 120px;
+    margin: 0;
+}
+.item__sidebar-calendar_weigth {
+    display: flex;
+    align-items: flex-end;
+    column-gap: 2px;
+}
+.sidebar-calendar.ant-drawer-open .calendar-training-modal__traning__item {
+    padding: 0;
+}
+.side-panel-button__submit {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.sidebar-calendar-content {
+    position: relative;
+}

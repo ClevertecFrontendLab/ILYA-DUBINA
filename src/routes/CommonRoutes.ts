@@ -17,4 +17,5 @@ export const CommonRoutes = {
     },
     main: '/main',
     feedbacks: '/feedbacks',
+    calendar: '/calendar',
 };

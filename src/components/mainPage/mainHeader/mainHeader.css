@@ -46,6 +46,13 @@
     padding: 4px 14px;
     background-color: #f0f5ff;
 }
+.header__welcome_settings:hover {
+    border: 1px solid #2f54eb;
+}
+.header__welcome_settings:focus {
+    outline: none;
+    box-shadow: none;
+}
 @media (max-width: 1000px) {
     .header__welcome_settings {
         width: 105px;

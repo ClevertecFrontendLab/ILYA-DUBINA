@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import SignupSlice from './CleverfitSwaggerRegistrationAPI';
 import LoginSlice from './CleverfitSwaggerAuthAPI';
 import FeedbacksSlice from './CleverfitSwaggeFeedbacksAPI';
+import CalendarTraningSlice from './CleverfitSwaggerCalendarTraningApi';
 import { createReduxHistoryContext } from 'redux-first-history';
 import { createBrowserHistory } from 'history';
 import { combineReducers } from 'redux';
@@ -16,6 +17,7 @@ export const store = configureStore({
         signup: SignupSlice,
         login: LoginSlice,
         feedbacks: FeedbacksSlice,
+        calendarTraning: CalendarTraningSlice,
     }),
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(routerMiddleware),
 });

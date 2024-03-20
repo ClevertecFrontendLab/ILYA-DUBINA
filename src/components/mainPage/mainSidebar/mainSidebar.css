@@ -44,6 +44,7 @@
 .content__item,
 .sidebar__exit_true,
 .sidebar__exit_false {
+    position: relative;
     padding: 12px 0 12px 16px;
 }
 @media (max-width: 767px) {
@@ -318,4 +319,16 @@
     opacity: 0;
     transform: translate(-100px);
     transition: all 3s ease;
+}
+.active-sidebar-button {
+    padding: 12px 16px;
+    box-shadow: inset -3px 0 0 0 #1890ff;
+    background-color: #f0f5ff;
+}
+.active-sidebar-button .link__calendar,
+.active-sidebar-button .link__text {
+    color: #597ef7;
+}
+.content__item {
+    margin: 0 0 16px 0;
 }

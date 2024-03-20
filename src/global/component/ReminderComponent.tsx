@@ -1,13 +1,20 @@
 import calendar from '../../images/body/calendar.svg';
 import { HeartFilled, AndroidFilled, AppleFilled, IdcardOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { ButtonGlobalComponent } from './ButtonGlobalComponent';
 import './reminderComponent.css';
 
 type Props = {
     text?: string;
     download?: boolean;
+    onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+    dataTestId?: string;
 };
-export const ReminderComponent: React.FC<Props> = ({ text = ' ', download = false }) => {
+export const ReminderComponent: React.FC<Props> = ({
+    text = ' ',
+    download = false,
+    onClick,
+    dataTestId,
+}) => {
     const n: string[] = text.split(' ');
     const word: string = n[n.length - 1].toLocaleLowerCase();
     return (
@@ -24,30 +31,38 @@ export const ReminderComponent: React.FC<Props> = ({ text = ' ', download = fals
                     </div>
                 )}
                 {!download ? (
-                    <Link className='reminder__link' to={'#'}>
-                        {word === 'тренировки' && (
-                            <>
-                                <HeartFilled style={{ color: '#2f54eb', fontSize: '14px' }} />
-                                <span className='reminder__link_text'>Тренировки</span>
-                            </>
-                        )}
-                        {word === 'календарь' && (
-                            <>
-                                <img
-                                    className='reminder__link_icon'
-                                    src={calendar}
-                                    alt='иконка календаря'
-                                />
-                                <span className='reminder__link_text'>Календарь</span>
-                            </>
-                        )}
-                        {word === 'профиль' && (
-                            <>
-                                <IdcardOutlined style={{ color: '#2f54eb', fontSize: '14px' }} />
-                                <span className='reminder__link_text'>Профиль</span>
-                            </>
-                        )}
-                    </Link>
+                    <ButtonGlobalComponent
+                        addClassName='reminder__link'
+                        onClick={onClick}
+                        dataTestId={dataTestId}
+                    >
+                        <>
+                            {word === 'тренировки' && (
+                                <>
+                                    <HeartFilled style={{ color: '#2f54eb', fontSize: '14px' }} />
+                                    <span className='reminder__link_text'>Тренировки</span>
+                                </>
+                            )}
+                            {word === 'календарь' && (
+                                <>
+                                    <img
+                                        className='reminder__link_icon'
+                                        src={calendar}
+                                        alt='иконка календаря'
+                                    />
+                                    <span className='reminder__link_text'>Календарь</span>
+                                </>
+                            )}
+                            {word === 'профиль' && (
+                                <>
+                                    <IdcardOutlined
+                                        style={{ color: '#2f54eb', fontSize: '14px' }}
+                                    />
+                                    <span className='reminder__link_text'>Профиль</span>
+                                </>
+                            )}
+                        </>
+                    </ButtonGlobalComponent>
                 ) : (
                     <div className='reminder__tel'>
                         <button className='reminder__tel_android'>

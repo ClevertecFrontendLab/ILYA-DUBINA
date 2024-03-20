@@ -1,3 +1,4 @@
+export { CalendarPage } from './calendar-page/calendar-page';
 export { FeedbacksPage } from './feedbacks-page/feedbacks-page';
 export { RegistrationPage } from './registration-page';
 export {

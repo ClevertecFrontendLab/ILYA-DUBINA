@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import calendar from '../../../images/sidebar/calendar.svg';
+import calendarOtherColor from '../../../images/sidebar/calendarOtherColor.svg';
 import exit from '../../../images/sidebar/exit.svg';
 import clever from '../../../images/sidebar/Clever.svg';
 import fit from '../../../images/sidebar/fit.svg';
@@ -15,14 +16,21 @@ import {
 } from '@ant-design/icons';
 import './mainSidebar.css';
 import { CommonRoutes } from '../../../routes/CommonRoutes';
-
-export const MainSidebar: React.FC = () => {
+import { clearStateC } from '@redux/CleverfitSwaggerCalendarTraningApi';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@redux/configure-store';
+type props = {
+    transitionCalendarPage?: any;
+};
+export const MainSidebar: React.FC<props> = ({ transitionCalendarPage }) => {
     const [close, setClose] = useState(false);
+    const dispatch = useDispatch<AppDispatch>();
     const setCloseSidebar = () => {
         setClose((item) => !item);
     };
     const exitApplication = () => {
         localStorage.clear();
+        dispatch(clearStateC());
     };
     return (
         <aside className={!close ? 'sidebar' : 'sidebar close'}>
@@ -84,9 +92,30 @@ export const MainSidebar: React.FC = () => {
                     />
                 </Link>
                 <ul className='sidebar__navigation_content'>
-                    <li className={!close ? 'content__item' : 'close__item'}>
-                        <Link id='linkOne' className='content__item_link' to='#'>
-                            <img className='link__calendar' src={calendar} alt='иконка календаря' />
+                    <li
+                        className={
+                            close
+                                ? 'close__item '
+                                : CommonRoutes.calendar === location.pathname
+                                ? 'content__item active-sidebar-button'
+                                : 'content__item'
+                        }
+                    >
+                        <Link
+                            id='linkOne'
+                            className='content__item_link'
+                            to=''
+                            onClick={transitionCalendarPage}
+                        >
+                            <img
+                                className='link__calendar'
+                                src={
+                                    CommonRoutes.calendar === location.pathname
+                                        ? calendarOtherColor
+                                        : calendar
+                                }
+                                alt='иконка календаря'
+                            />
                             <span className={!close ? 'link__text' : 'link__text_close'}>
                                 Календарь
                             </span>

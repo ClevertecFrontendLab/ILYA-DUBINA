@@ -1,0 +1,23 @@
+.item__editing_income {
+    display: flex;
+    flex-direction: column;
+}
+.item__editing_text.item__editing_text {
+    font-size: 0.75em;
+}
+.edit-past-traning.ant-typography {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 0.75em;
+    line-height: 130%;
+    text-align: center;
+    margin: 0 0 32px 0;
+    color: #8c8c8c;
+}
+.edit-past-form {
+    min-height: 76%;
+}
+.editing__form_number {
+    display: flex;
+    justify-content: space-between;
+}

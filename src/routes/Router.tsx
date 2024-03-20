@@ -16,6 +16,7 @@ import {
     RecoverySuccessPasswordChangePage,
     RegistrationPage,
     FeedbacksPage,
+    CalendarPage,
 } from '../pages';
 import { CommonRoutes } from './CommonRoutes.ts';
 import { push } from 'redux-first-history';
@@ -166,6 +167,14 @@ export const Router = () => {
                 element={
                     <Suspense fallback={<SpinerLoading />}>
                         <FeedbacksPage />
+                    </Suspense>
+                }
+            />
+            <Route
+                path={CommonRoutes.calendar}
+                element={
+                    <Suspense fallback={<SpinerLoading />}>
+                        <CalendarPage />
                     </Suspense>
                 }
             />

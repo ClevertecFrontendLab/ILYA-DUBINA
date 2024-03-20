@@ -8,7 +8,6 @@ type singupDataType = {
 export const signupUser = createAsyncThunk(
     'users/signupUser',
     async ({ email, password }: singupDataType, { rejectWithValue }) => {
-        console.log(email, password);
         try {
             const link = 'https://marathon-api.clevertec.ru/auth/registration';
             const params = {

@@ -32,6 +32,7 @@ type Props = {
     paddingText?: 'big' | '';
     onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
     addClassNameText?: string;
+    dataTestId?: string;
 };
 type dataTestIdObjectType = {
     successReg: string;
@@ -94,6 +95,7 @@ export const ErrorAndWarningComponent: React.FC<Props> = ({
     paddingText = '',
     addClassNameText = '',
     onClick,
+    dataTestId,
 }) => {
     return (
         <article className='containerWarning'>
@@ -141,7 +143,7 @@ export const ErrorAndWarningComponent: React.FC<Props> = ({
                     <Link
                         className={`errorAndWarningComponent__link ${paddingLink}`}
                         to={onClick ? '' : toObject[warningContent]}
-                        data-test-id={dataTestIdObject[warningContent]}
+                        data-test-id={dataTestId ? dataTestId : dataTestIdObject[warningContent]}
                         onClick={onClick}
                     >
                         {textLink}

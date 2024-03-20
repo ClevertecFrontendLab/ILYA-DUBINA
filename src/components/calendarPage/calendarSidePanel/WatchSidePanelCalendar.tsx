@@ -1,4 +1,4 @@
-import './watchSidePanelCalendar.css';
+import './WatchSidePanelCalendar.css';
 import { CloseOutlined } from '@ant-design/icons';
 import { Button, Input, Space, InputNumber, Typography, Drawer, Form } from 'antd';
 const { Text } = Typography;
